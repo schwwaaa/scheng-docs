@@ -1,15 +1,14 @@
 ---
-layout: page
-title: ShadeCore Documentation
+layout: default
+title: Home
+# nav_order: 1
+permalink: /
 ---
 
-# ShadeCore Documentation
+# scheng
 
-Welcome to the ShadeCore / Schengine documentation. Start here:
+scheng is a Rust-based engine for GPU-accelerated video synthesis and real-time video instrument development.
 
-- [SDK Overview](02_SDK_REFERENCE/sdk_overview.md)
-- [Instrument Patterns](03_INSTRUMENT_PATTERNS/instrument_anatomy.md)
-- [Examples](04_EXAMPLES/examples_index.md)
-- [Extension Guides](05_EXTENSION_GUIDES/creating_new_example.md)
-- [Internals](06_INTERNALS/crate_map.md)
+It provides a graph-based execution model, explicit shader and node contracts, and a modular SDK surface for building deterministic, extensible visual systems.
 
+---

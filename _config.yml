@@ -1,0 +1,21 @@
+title: scheng
+description: Simple documentation site using Just the Docs.
+theme: just-the-docs
+
+baseurl: ""
+url: ""
+
+just_the_docs:
+  search_enabled: true
+  nav_sort: case_insensitive
+
+markdown: kramdown
+highlighter: rouge
+plugins: []
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
