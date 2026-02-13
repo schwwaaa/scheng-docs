@@ -1,10 +1,4 @@
 source "https://rubygems.org"
-
-# Keep Jekyll aligned with your existing setup
-gem "jekyll", "~> 4.3"
-
-# Remote theme support (matches `_config.yml` remote_theme + plugin)
-gem "jekyll-remote-theme"
-
-# Required for `jekyll serve` on Ruby 3+
-gem "webrick", "~> 1.8"
+gem "github-pages", group: :jekyll_plugins          # pulls in everything GitHub Pages uses
+gem "jekyll-remote-theme", group: :jekyll_plugins   # needed for remote themes
+gem "webrick"                                         # Ruby 3.4+ needs this for the server

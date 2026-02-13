@@ -1,0 +1,765 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    .site-nav > ul.nav-list:first-child > li > a,
+    
+    .site-nav > ul.nav-list:first-child > li > ul > li:not(:nth-child(2)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(4) > ul > li:nth-child(2) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(4) > button svg,
+    .site-nav > ul.nav-list:first-child > li:nth-child(4) > ul > li:nth-child(2) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(4) > ul.nav-list,
+    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(4) > ul.nav-list > li.nav-list-item:nth-child(2) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Glossary</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Glossary" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/reference/glossary/" />
+<meta property="og:url" content="http://localhost:4000/reference/glossary/" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Glossary" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Glossary","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/logo.png"}},"url":"http://localhost:4000/reference/glossary/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <header class="side-bar">
+  <div class="site-header">
+    <a href="/" class="site-title lh-tight">
+  <div class="site-logo" role="img" aria-label=" "></div>
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/overview/" class="nav-list-link">Overview</a></li><li class="nav-list-item"><a href="/getting-started/" class="nav-list-link">Getting Started</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="SDK Reference submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/sdk/" class="nav-list-link">SDK Reference</a><ul class="nav-list"><li class="nav-list-item"><a href="/sdk/crate-map/" class="nav-list-link">Crate Map</a></li><li class="nav-list-item"><a href="/sdk/" class="nav-list-link">SDK Overview</a></li><li class="nav-list-item"><a href="/sdk/frame-ctx/" class="nav-list-link">Frame Context (`FrameCtx`)</a></li><li class="nav-list-item"><a href="/sdk/graph-api/" class="nav-list-link">Graph API</a></li><li class="nav-list-item"><a href="/sdk/execution-model/" class="nav-list-link">Execution Model Internals</a></li><li class="nav-list-item"><a href="/sdk/node-kinds/" class="nav-list-link">Node Kinds</a></li><li class="nav-list-item"><a href="/sdk/known-constraints/" class="nav-list-link">Known Constraints and Non-Goals</a></li><li class="nav-list-item"><a href="/sdk/node-props/" class="nav-list-link">NodeProps Reference</a></li><li class="nav-list-item"><a href="/sdk/osc-contract/" class="nav-list-link">OSC Contract</a></li><li class="nav-list-item"><a href="/sdk/runtime-execution/" class="nav-list-link">Runtime Execution</a></li><li class="nav-list-item"><a href="/sdk/shader-contract/" class="nav-list-link">Shader Contract</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Reference submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/reference/" class="nav-list-link">Reference</a><ul class="nav-list"><li class="nav-list-item"><a href="/reference/api/" class="nav-list-link">API</a></li><li class="nav-list-item"><a href="/reference/glossary/" class="nav-list-link">Glossary</a></li></ul></li><li class="nav-list-item"><a href="/" class="nav-list-link">Home</a></li></ul>
+  
+</nav>
+
+
+<div class="d-md-block d-none site-footer">
+  
+  
+    This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+  
+  </div>
+</header>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+    <li class="breadcrumb-nav-list-item"><a href="/reference/">Reference</a></li>
+    <li class="breadcrumb-nav-list-item"><span>Glossary</span></li>
+  </ol>
+</nav>
+
+
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="glossary">
+  
+  
+    <a href="#glossary" class="anchor-heading" aria-labelledby="glossary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Glossary
+  
+  
+</h1>
+    
+
+<p>This glossary defines the canonical terminology used throughout the ShadeCore SDK documentation.</p>
+
+<p>The definitions here are authoritative.<br />
+If a term is used in SDK, Internals, or Patterns documentation, it should align with this glossary.</p><hr />
+<h1 id="core-architectural-terms">
+  
+  
+    <a href="#core-architectural-terms" class="anchor-heading" aria-labelledby="core-architectural-terms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Core Architectural Terms
+  
+  
+</h1>
+    
+<h2 id="instrument">
+  
+  
+    <a href="#instrument" class="anchor-heading" aria-labelledby="instrument"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Instrument
+  
+  
+</h2>
+    
+
+<p>A user-defined application built on top of the ShadeCore engine.</p>
+
+<p>An instrument is responsible for:</p>
+
+<ul>
+  <li>Constructing the Graph</li>
+  <li>Supplying NodeProps</li>
+  <li>Supplying FrameCtx</li>
+  <li>Handling control input (OSC, MIDI, etc.)</li>
+  <li>Managing external textures or devices</li>
+</ul>
+
+<p>The engine does not define instruments. Instruments define themselves around the engine.</p><hr />
+<h2 id="engine">
+  
+  
+    <a href="#engine" class="anchor-heading" aria-labelledby="engine"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Engine
+  
+  
+</h2>
+    
+
+<p>The collective core crates that define:</p>
+
+<ul>
+  <li>Graph topology</li>
+  <li>Runtime execution</li>
+  <li>GPU integration</li>
+</ul>
+
+<p>The engine is deterministic and execution-focused.<br />
+It does not own time, control protocols, or device management.</p><hr />
+<h2 id="graph">
+  
+  
+    <a href="#graph" class="anchor-heading" aria-labelledby="graph"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Graph
+  
+  
+</h2>
+    
+
+<p>The static topology describing how nodes connect.</p>
+
+<p>The graph defines:</p>
+
+<ul>
+  <li>Nodes</li>
+  <li>Ports</li>
+  <li>Directed connections</li>
+  <li>Acyclic data flow</li>
+</ul>
+
+<p>The graph does not define behavior. It defines structure.</p><hr />
+<h2 id="execution-plan">
+  
+  
+    <a href="#execution-plan" class="anchor-heading" aria-labelledby="execution-plan"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Execution Plan
+  
+  
+</h2>
+    
+
+<p>An immutable, compiled representation of a Graph.</p>
+
+<p>Produced by calling <code class="language-plaintext highlighter-rouge">compile()</code>.</p>
+
+<p>The execution plan defines:</p>
+
+<ul>
+  <li>Deterministic node order</li>
+  <li>Validated connections</li>
+  <li>Runtime-ready topology</li>
+</ul>
+
+<p>The plan cannot be modified once compiled.</p><hr />
+<h2 id="node">
+  
+  
+    <a href="#node" class="anchor-heading" aria-labelledby="node"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Node
+  
+  
+</h2>
+    
+
+<p>A single unit of computation inside the graph.</p>
+
+<p>A node may:</p>
+
+<ul>
+  <li>Produce textures</li>
+  <li>Transform textures</li>
+  <li>Combine textures</li>
+  <li>Write final outputs</li>
+</ul>
+
+<p>Nodes do not own time or control state.</p><hr />
+<h2 id="nodeid">
+  
+  
+    <a href="#nodeid" class="anchor-heading" aria-labelledby="nodeid"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> NodeId
+  
+  
+</h2>
+    
+
+<p>An opaque identifier assigned by the Graph.</p>
+
+<p>Used as the key into:</p>
+
+<ul>
+  <li>NodeProps</li>
+  <li>Shader bindings</li>
+  <li>Parameter maps</li>
+</ul>
+
+<p>NodeId is stable for the lifetime of a graph instance.</p><hr />
+<h2 id="nodeprops">
+  
+  
+    <a href="#nodeprops" class="anchor-heading" aria-labelledby="nodeprops"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> NodeProps
+  
+  
+</h2>
+    
+
+<p>The complete configuration surface for nodes.</p>
+
+<p>NodeProps supplies:</p>
+
+<ul>
+  <li>Shader sources</li>
+  <li>Mixer parameters</li>
+  <li>Video configuration</li>
+  <li>Texture bindings</li>
+  <li>Output naming</li>
+</ul>
+
+<p>NodeProps is owned by the instrument and read by the runtime.</p><hr />
+<h2 id="framectx">
+  
+  
+    <a href="#framectx" class="anchor-heading" aria-labelledby="framectx"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> FrameCtx
+  
+  
+</h2>
+    
+
+<p>The immutable per-frame execution context.</p>
+
+<p>Contains:</p>
+
+<ul>
+  <li>width</li>
+  <li>height</li>
+  <li>time</li>
+  <li>frame</li>
+</ul>
+
+<p>The engine does not generate or mutate FrameCtx.</p><hr />
+<h2 id="runtime">
+  
+  
+    <a href="#runtime" class="anchor-heading" aria-labelledby="runtime"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Runtime
+  
+  
+</h2>
+    
+
+<p>The component that executes a compiled plan for one frame.</p>
+
+<p>The runtime:</p>
+
+<ul>
+  <li>Reads NodeProps</li>
+  <li>Reads FrameCtx</li>
+  <li>Binds resources</li>
+  <li>Dispatches draw calls</li>
+  <li>Produces outputs</li>
+</ul>
+
+<p>The runtime is not a scheduler.</p><hr />
+<h2 id="runtime-implementation">
+  
+  
+    <a href="#runtime-implementation" class="anchor-heading" aria-labelledby="runtime-implementation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Runtime Implementation
+  
+  
+</h2>
+    
+
+<p>A concrete execution backend.</p>
+
+<p>Example:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">shadecore-runtime-glow</code></li>
+</ul>
+
+<p>Responsible for:</p>
+
+<ul>
+  <li>Shader compilation</li>
+  <li>GL resource management</li>
+  <li>Texture allocation</li>
+  <li>Framebuffer management</li>
+</ul><hr />
+<h1 id="gpu--rendering-terms">
+  
+  
+    <a href="#gpu--rendering-terms" class="anchor-heading" aria-labelledby="gpu--rendering-terms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> GPU &amp; Rendering Terms
+  
+  
+</h1>
+    
+<h2 id="shaderpass">
+  
+  
+    <a href="#shaderpass" class="anchor-heading" aria-labelledby="shaderpass"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ShaderPass
+  
+  
+</h2>
+    
+
+<p>A processing node that executes a GLSL program over input textures.</p>
+
+<p>Used for:</p>
+
+<ul>
+  <li>Effects</li>
+  <li>Transformations</li>
+  <li>Post-processing</li>
+</ul><hr />
+<h2 id="mixer">
+  
+  
+    <a href="#mixer" class="anchor-heading" aria-labelledby="mixer"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Mixer
+  
+  
+</h2>
+    
+
+<p>A node that combines multiple input textures into one output.</p>
+
+<p>Mixing semantics are defined entirely by the shader.</p>
+
+<p>The engine does not impose RGB or channel semantics.</p><hr />
+<h2 id="uniform">
+  
+  
+    <a href="#uniform" class="anchor-heading" aria-labelledby="uniform"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Uniform
+  
+  
+</h2>
+    
+
+<p>A shader parameter supplied by the runtime.</p>
+
+<p>Standard uniforms include:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">uResolution</code></li>
+  <li><code class="language-plaintext highlighter-rouge">uTime</code></li>
+  <li><code class="language-plaintext highlighter-rouge">uFrame</code></li>
+</ul>
+
+<p>Custom uniforms must be supplied via NodeProps.</p><hr />
+<h2 id="sampler-binding">
+  
+  
+    <a href="#sampler-binding" class="anchor-heading" aria-labelledby="sampler-binding"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Sampler Binding
+  
+  
+</h2>
+    
+
+<p>The mapping between a graph input texture and a shader sampler uniform.</p>
+
+<p>Sampler ordering is deterministic per node kind.</p><hr />
+<h2 id="framebuffer-fbo">
+  
+  
+    <a href="#framebuffer-fbo" class="anchor-heading" aria-labelledby="framebuffer-fbo"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Framebuffer (FBO)
+  
+  
+</h2>
+    
+
+<p>A GPU render target used for intermediate or final outputs.</p>
+
+<p>Managed internally by the runtime implementation.</p><hr />
+<h1 id="control--integration-terms">
+  
+  
+    <a href="#control--integration-terms" class="anchor-heading" aria-labelledby="control--integration-terms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Control &amp; Integration Terms
+  
+  
+</h1>
+    
+<h2 id="control-layer">
+  
+  
+    <a href="#control-layer" class="anchor-heading" aria-labelledby="control-layer"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Control Layer
+  
+  
+</h2>
+    
+
+<p>The instrument-level system that:</p>
+
+<ul>
+  <li>Receives external messages (OSC, MIDI, etc.)</li>
+  <li>Maps values to parameters</li>
+  <li>Updates NodeProps</li>
+</ul>
+
+<p>The control layer is outside the engine.</p><hr />
+<h2 id="osc-contract">
+  
+  
+    <a href="#osc-contract" class="anchor-heading" aria-labelledby="osc-contract"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> OSC Contract
+  
+  
+</h2>
+    
+
+<p>The pattern by which OSC values are translated into parameter updates.</p>
+
+<p>The engine does not parse OSC directly.</p><hr />
+<h2 id="texture-input">
+  
+  
+    <a href="#texture-input" class="anchor-heading" aria-labelledby="texture-input"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Texture Input
+  
+  
+</h2>
+    
+
+<p>An externally created texture injected into the graph.</p>
+
+<p>Ownership model:</p>
+
+<ul>
+  <li>Instrument owns the texture handle</li>
+  <li>Runtime consumes it during execution</li>
+</ul><hr />
+<h2 id="transport">
+  
+  
+    <a href="#transport" class="anchor-heading" aria-labelledby="transport"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Transport
+  
+  
+</h2>
+    
+
+<p>The time-control model implemented by the instrument.</p>
+
+<p>Examples:</p>
+
+<ul>
+  <li>Play</li>
+  <li>Pause</li>
+  <li>Scrub</li>
+  <li>Loop</li>
+</ul>
+
+<p>Transport logic updates FrameCtx.time.</p><hr />
+<h1 id="determinism--execution-terms">
+  
+  
+    <a href="#determinism--execution-terms" class="anchor-heading" aria-labelledby="determinism--execution-terms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Determinism &amp; Execution Terms
+  
+  
+</h1>
+    
+<h2 id="deterministic-execution">
+  
+  
+    <a href="#deterministic-execution" class="anchor-heading" aria-labelledby="deterministic-execution"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Deterministic Execution
+  
+  
+</h2>
+    
+
+<p>For identical:</p>
+
+<ul>
+  <li>Graph</li>
+  <li>NodeProps</li>
+  <li>FrameCtx</li>
+</ul>
+
+<p>The runtime produces identical execution order and resource bindings.</p>
+
+<p>Shader determinism depends on shader code.</p><hr />
+<h2 id="lazy-compilation">
+  
+  
+    <a href="#lazy-compilation" class="anchor-heading" aria-labelledby="lazy-compilation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Lazy Compilation
+  
+  
+</h2>
+    
+
+<p>Shader programs are compiled only on first use.</p>
+
+<p>Compiled programs are cached for reuse across frames.</p><hr />
+<h2 id="hot-path">
+  
+  
+    <a href="#hot-path" class="anchor-heading" aria-labelledby="hot-path"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Hot Path
+  
+  
+</h2>
+    
+
+<p>The per-frame execution path.</p>
+
+<p>Must avoid:</p>
+
+<ul>
+  <li>Allocation</li>
+  <li>Shader recompilation</li>
+  <li>Blocking I/O</li>
+</ul><hr />
+<h1 id="architectural-boundaries">
+  
+  
+    <a href="#architectural-boundaries" class="anchor-heading" aria-labelledby="architectural-boundaries"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Architectural Boundaries
+  
+  
+</h1>
+    
+<h2 id="topology-vs-configuration">
+  
+  
+    <a href="#topology-vs-configuration" class="anchor-heading" aria-labelledby="topology-vs-configuration"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Topology vs Configuration
+  
+  
+</h2>
+    
+
+<p>Topology:</p>
+<ul>
+  <li>Defined by Graph</li>
+  <li>Static after compile</li>
+</ul>
+
+<p>Configuration:</p>
+<ul>
+  <li>Defined by NodeProps</li>
+  <li>Mutable between frames</li>
+</ul><hr />
+<h2 id="engine-vs-instrument">
+  
+  
+    <a href="#engine-vs-instrument" class="anchor-heading" aria-labelledby="engine-vs-instrument"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Engine vs Instrument
+  
+  
+</h2>
+    
+
+<p>Engine:</p>
+<ul>
+  <li>Deterministic executor</li>
+  <li>No protocol ownership</li>
+  <li>No device ownership</li>
+  <li>No time ownership</li>
+</ul>
+
+<p>Instrument:</p>
+<ul>
+  <li>Owns time</li>
+  <li>Owns control</li>
+  <li>Owns external textures</li>
+  <li>Owns graph construction</li>
+</ul><hr />
+<h1 id="non-goals">
+  
+  
+    <a href="#non-goals" class="anchor-heading" aria-labelledby="non-goals"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Non-Goals
+  
+  
+</h1>
+    
+
+<p>The engine is not:</p>
+
+<ul>
+  <li>A media player</li>
+  <li>A scheduler</li>
+  <li>A device manager</li>
+  <li>A protocol parser</li>
+</ul>
+
+<p>These responsibilities belong to the instrument layer.</p>
+
+          
+
+          
+            
+          
+        </main>
+        
+<hr>
+<footer>
+  
+
+  
+
+  <div class="d-md-none mt-4 fs-2">
+    
+    
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    
+  </div>
+</footer>
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+
