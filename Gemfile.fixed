@@ -1,9 +1,10 @@
 source "https://rubygems.org"
 
-# Keep Jekyll aligned with your existing setup
+# Local build/runtime (your current setup)
 gem "jekyll", "~> 4.3"
+gem "just-the-docs", "~> 0.8.0"
 
-# Remote theme support (matches `_config.yml` remote_theme + plugin)
+# Required if `_config.yml` uses `remote_theme:` (GitHub Pages style)
 gem "jekyll-remote-theme"
 
 # Required for `jekyll serve` on Ruby 3+
