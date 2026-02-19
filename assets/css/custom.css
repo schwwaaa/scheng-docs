@@ -1,0 +1,42 @@
+/* Center the logo inside sidebar */
+
+.site-header {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+
+/* Center the whole site title block (text + logo) inside sidebar */
+
+.site-title {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 0.25rem;
+}
+
+
+/* Make the logo bigger */
+
+.site-logo {
+    display: block !important;
+    width: 120px !important;
+    /* tweak this */
+    height: auto !important;
+    margin: 0 auto !important;
+}
+
+
+/* Optional: reduce weird left padding in the header area */
+
+.site-header {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+}
+
+.side-bar {
+    background: #ff00ff !important;
+}

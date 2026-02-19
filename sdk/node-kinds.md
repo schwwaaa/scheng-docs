@@ -1,83 +1,103 @@
 ---
 layout: default
 title: Node Kinds
-parent: SDK Reference
-nav_order: 3
+parent: SDK
+nav_order: 4
 permalink: /sdk/node-kinds/
 ---
 
 # Node Kinds
 
-Node kinds define execution roles within the graph.
+Node kinds define execution roles within a compiled graph. They classify how a node participates in topology and evaluation. Behavior is still determined by shader code and `NodeProps`.
 
-Each kind establishes:
-
-- Port configuration
-- Expected inputs
-- Expected outputs
-- Runtime behavior category
+- Node kinds do not alter execution order.  
+- Ordering is determined by graph topology.
 
 ---
 
 ## Source Nodes
 
-Produce textures without upstream dependencies.
+Source nodes produce textures without upstream dependencies.They have no required input ports.
 
 Examples:
 
 - Video decode nodes
-- Webcam input
+- Capture inputs
 - Procedural generators
 
-Guarantee: At least one output texture per frame (unless external failure).
+Characteristics:
+
+- At least one output port
+- No required input connections
+- Output produced once per frame (unless upstream resource failure)
 
 ---
 
 ## Processing Nodes
 
-Transform input textures to a new output.
+Processing nodes transform one or more input textures into a new output texture.
 
 Examples:
 
-- ShaderPass
+- Shader passes
 - Color transforms
-- Post-processing effects
+- Post-processing stages
 
-Guarantee: Pure transformation given deterministic shader and inputs.
+Characteristics:
+
+- Require input connections
+- Produce at least one output
+- Deterministic given identical inputs, `NodeProps`, and shaders
 
 ---
 
 ## Mixer Nodes
 
-Combine multiple textures into a single output.
+Mixer nodes combine multiple input textures into a single output.
 
 Characteristics:
 
 - Fixed input count per node type
-- Semantics defined by shader
+- Combination semantics defined by shader
 - Parameters supplied via `NodeProps`
+- Deterministic given identical inputs and configuration
 
 ---
 
 ## Output Nodes
 
-Terminal nodes that write results to:
+Output nodes terminate the graph.
+
+They write results to:
 
 - Framebuffers
 - Named outputs
 - Readback buffers
 
-They do not produce further graph outputs.
+Characteristics:
+
+- May consume inputs
+- Do not produce downstream outputs
+- Represent terminal graph boundaries
+
+---
+
+## Design Constraints
+
+Node kinds describe structural roles only. These responsibilities belong to `scheng-graph`, `scheng-runtime`, and backend implementations.
+
+They do not:
+
+- Control execution timing
+- Modify topology during evaluation
+- Manage GPU resources
+- Introduce scheduling behavior
 
 ---
 
 ## Extensibility Guidance
 
-Prefer:
+Avoid introducing new node kinds unless execution semantics require a distinct structural role. Prefer extending behavior through:
 
 - New shaders
-- New configuration parameters
-
-Avoid:
-
-- Introducing new node kinds unless execution semantics require it
+- Additional `NodeProps` configuration

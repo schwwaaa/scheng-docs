@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SDK Reference
+title: SDK
 nav_order: 3
 has_children: true
 permalink: /sdk/

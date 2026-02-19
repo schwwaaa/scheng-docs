@@ -1,11 +1,13 @@
 ---
 layout: default
 title: Home
-# nav_order: 1
+nav_order: 0
 permalink: /
 ---
-
-# scheng
+<img src="/assets/img/logo.png"
+     alt="Logo"
+     style="display:block;margin:0 auto;"
+     width=240px>
 
 scheng is a Rust-based engine for GPU-accelerated video synthesis and real-time video instrument development.
 

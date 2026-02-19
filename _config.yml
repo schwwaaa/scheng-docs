@@ -1,42 +1,21 @@
-title: " "
-description: " "
+title: scheng
+description: Simple documentation site using Just the Docs.
+theme: just-the-docs
 
-# however you’re activating the theme; either of these is fine:
+baseurl: ""
+url: ""
+
+just_the_docs:
+  search_enabled: true
+  nav_sort: case_insensitive
 
 markdown: kramdown
+highlighter: rouge
+plugins: []
 
-kramdown:
-  syntax_highlighter: rouge
-
-# If GitHub wrote this for you:
-remote_theme: just-the-docs/just-the-docs@v0.12.0
-plugins:
-  - jekyll-remote-theme
-
-# OR if you’re using the plain theme line instead:
-# theme: jekyll-theme-minimal
-
-baseurl: "/"
-exclude:
-  - README.md
-  - LICENSE
-  - .git
-  - .github
-  - node_modules
-  - vendor
-  - Gemfile
-  - Gemfile.lock
-
-logo: "/assets/img/logo.png"  # 👈 THIS is the important line
-show_downloads: false     # optional, hides the ZIP/TAR buttons
-
-permalink: pretty
-
-collections:
-  docs:
-    output: true
-    permalink: /:path/
-    
-include:
-  - assets/css/custom.css
-
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"

@@ -1,9 +1,8 @@
 ---
 layout: default
 title: Glossary
-parent: Reference
-nav_order: 2
-permalink: /reference/glossary/
+nav_order: 6
+permalink: /glossary/
 ---
 
 # Glossary

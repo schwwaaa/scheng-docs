@@ -1,66 +1,19 @@
 ---
 layout: default
-title: SDK Overview
-parent: SDK Reference
-nav_order: 1
+title: Overview
+parent: SDK
+nav_order: 0
 permalink: /sdk/
 ---
 
 # SDK Overview
 
-The scheng SDK defines the public surface for building video instruments on top of the scheng engine.
+The scheng SDK defines the public surface for building video instruments on top of the scheng engine. It provides the contracts, types, and execution interfaces required to construct graph-based, GPU-accelerated visual systems. This document describes the role, structure, and boundaries of the SDK.
 
-It provides the contracts, types, and execution interfaces required to construct graph-based, GPU-accelerated visual systems.
+## High Level
+At a high level, the SDK acts as the declarative contract layer between instrument code and engine fulfillment.
 
-This document describes the role, structure, and boundaries of the SDK.
-
----
-
-## Purpose
-
-The SDK exists to:
-
-- Define stable interfaces between graph, runtime, and shader layers
-- Enforce explicit execution contracts
-- Enable instrument development without modifying core engine internals
-- Provide predictable, deterministic runtime behavior
-
-The SDK is the supported extension surface of scheng.
-
----
-
-## Scope
-
-The SDK includes:
-
-- Graph construction APIs
-- Node contract definitions
-- Runtime execution interfaces
-- Shader form contracts
-- NodeProps and parameter surfaces
-- Control propagation structures (e.g., OSC integration points)
-
-The SDK does not include:
-
-- Internal runtime scheduling details
-- GPU driver abstractions
-- Private engine state
-- Experimental or unstable internal utilities
-
-For engine implementation details, see **Internals**.
-
----
-
-## Architecture Model
-
-At a high level, the SDK sits between instrument code and engine execution.
-
-Instrument Code  
-→ SDK Contracts  
-→ Runtime Execution  
-→ GPU Shader Execution  
-
-The SDK defines:
+*The SDK defines ...*
 
 - How nodes are declared
 - How parameters are structured
@@ -68,13 +21,28 @@ The SDK defines:
 - How shaders are registered and invoked
 - How execution is triggered per frame
 
+*The SDK exists to ...*
+
+- Define stable interfaces between graph, runtime, and shader layers
+- Enforce explicit execution contracts
+- Enable instrument development without modifying core engine internals
+- Provide predictable, deterministic runtime behavior
+
+*The SDK does not include ...*
+
+- Internal runtime scheduling details
+- GPU driver abstractions
+- Private engine state
+- Experimental or unstable internal utilities
+
 ---
 
-## Core Components
+## Scope
 
-### Graph API
+### Graph Construction APIs
+The Graph Construction APIs provide the primitives for building directed execution graphs that define how data flows between nodes. These APIs allow developers to create nodes, connect outputs to inputs, define execution order, and describe the overall topology of a visual or computational pipeline.
 
-Defines how nodes and edges are declared and connected.
+They form the structural backbone of the SDK — enabling deterministic, inspectable, and reusable graph definitions.
 
 Responsibilities:
 
@@ -82,37 +50,23 @@ Responsibilities:
 - Texture routing
 - Graph topology validation
 
----
 
-### Node Contracts
+### Node Contract Definitions
 
-Each node must implement a defined execution contract.
+Node contracts define the formal interface of a node: its inputs, outputs, expected data types, and execution behavior. A contract ensures that nodes can be validated, composed, and executed safely within the graph without ambiguity.
 
+These definitions create strict boundaries between graph logic and runtime implementation, ensuring consistency across custom and built-in nodes.
 Responsibilities:
 
 - Define input/output texture expectations
 - Expose configurable parameters
 - Execute per-frame logic safely
 
----
+### Runtime Execution Interfaces
 
-### NodeProps
+Defines how frames are planned and dispatched. Runtime execution interfaces provide the abstraction layer responsible for evaluating the graph. They define how nodes are scheduled, how frames or buffers are processed, and how outputs are resolved. The runtime does not define shader behavior. It coordinates execution.
 
-Defines parameter surfaces for nodes.
-
-Responsibilities:
-
-- Store runtime-modifiable values
-- Provide default configuration
-- Maintain deterministic parameter state
-
-NodeProps are the boundary between control inputs and execution logic.
-
----
-
-### Runtime Execution Interface
-
-Defines how frames are planned and dispatched.
+This layer separates graph definition from execution backend (e.g., CPU, GPU, Glow, headless runtime), allowing multiple runtimes to operate against the same graph model.
 
 Responsibilities:
 
@@ -121,13 +75,11 @@ Responsibilities:
 - Invoke node execution in correct order
 - Maintain frame context
 
-The runtime does not define shader behavior. It coordinates execution.
+### Shader Form Contracts
 
----
+Defines the interface between node logic and GPU shader forms. Shader form contracts describe the expected structure and binding behavior of shader-based nodes. They define how uniforms, textures, and parameters are exposed and mapped to the runtime. 
 
-### Shader Contract
-
-Defines the interface between node logic and GPU shader forms.
+This ensures that shader modules behave predictably across runtimes and that parameter surfaces are formally declared rather than implicitly assumed.
 
 Responsibilities:
 
@@ -136,57 +88,23 @@ Responsibilities:
 - Output target definitions
 - Explicit parameter mapping
 
-Shader contracts must remain consistent to preserve execution guarantees.
+
+### NodeProps and Parameter Surfaces
+
+NodeProps represent the configurable parameter surface of a node. Defines parameter surfaces for nodes. They provide a structured way to expose values such as floats, toggles, vectors, or other control inputs that influence node behavior.
+
+Parameter surfaces are designed to be introspectable and controllable, making them compatible with UI systems, automation, or external control signals. NodeProps are the boundary between control inputs and execution logic.
+
+Responsibilities:
+
+- Store runtime-modifiable values
+- Provide default configuration
+- Maintain deterministic parameter state
+
+### Control Propagation Structures (e.g., OSC Integration Points)
+
+Control propagation structures define how external control signals move through the system. This includes integration points for OSC, MIDI, or other real-time control mechanisms.
+
+These structures ensure that parameter updates, automation, and live performance inputs can be injected into the graph safely and deterministically without breaking execution guarantees.
 
 ---
-
-## Stability Guarantees
-
-Public SDK APIs are considered stable unless explicitly documented otherwise.
-
-Changes that affect:
-
-- Node contract signatures
-- Frame context structures
-- Shader uniform expectations
-
-are considered breaking and must be versioned appropriately.
-
----
-
-## Extension Model
-
-To extend scheng using the SDK:
-
-- Create new nodes implementing the required contract
-- Register new shader forms
-- Extend NodeProps for parameter exposure
-- Wire graph topology explicitly
-
-The SDK allows feature growth without modifying runtime internals.
-
----
-
-## Design Principles
-
-- Explicit over implicit
-- Deterministic frame execution
-- Clear boundary between graph and runtime
-- GPU-first architecture
-- Minimal hidden state
-
----
-
-## When to Use the SDK Reference
-
-Use the SDK Reference when:
-
-- Implementing new nodes
-- Registering shader forms
-- Modifying parameter surfaces
-- Investigating execution flow
-- Ensuring contract correctness
-
-For conceptual explanations and workflows, see **Guides**.
-
-For internal engine mechanics, see **Internals**.

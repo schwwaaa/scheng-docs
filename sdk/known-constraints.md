@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Known Constraints and Non-Goals
-parent: SDK Reference
-nav_order: 3
+parent: SDK
+nav_order: 10
 permalink: /sdk/known-constraints/
 ---
 
@@ -10,91 +10,112 @@ permalink: /sdk/known-constraints/
 
 This document records intentional architectural constraints.
 
-These are not limitations by accident — they are design decisions.
+These define what the engine does not do and where responsibility boundaries exist.
 
 ---
 
-# Time and Transport
+## Time and Transport
 
-Constraint:
+This section defines how temporal control is handled in the system. The engine evaluates frames. It does not manage playback state or time progression.
+
+**Constraint:**  
 The engine does not own time.
 
-Implication:
+**Implications:**
+
 - No play/pause inside core crates
 - No internal frame clock
 - No transport logic in runtime
 
 All transport semantics belong to the instrument layer.
 
+**Subject to change*
+
 ---
 
-# Control Protocols
+## Control Protocols
 
-Constraint:
+This section defines how external control signals enter the system. The engine processes values. It does not implement protocol handling.
+
+**Constraint:**  
 The engine is protocol-agnostic.
 
-Implication:
+**Implications:**
+
 - No OSC parsing in core crates
 - No MIDI handling in runtime
 - No network socket management
 
-Control values enter via NodeProps only.
+Control values enter the engine via `NodeProps` only.
 
 ---
 
-# Device Management
+## Device Management
 
-Constraint:
-Devices are external concerns.
+This section defines the boundary between the engine and hardware. The engine consumes GPU resources but does not manage devices.
 
-Implication:
+**Constraint:**  
+Device interaction is external.
+
+**Implications:**
+
 - No webcam enumeration in runtime
 - No OS-specific capture APIs in engine
 - No platform-specific code in core crates
 
-Engine consumes textures — it does not manage hardware.
+The engine consumes textures.  
+It does not manage hardware.
 
 ---
 
-# Node Proliferation
+## Node Surface Area
 
-Constraint:
+This section defines how node types evolve. The system favors extensibility through configuration rather than proliferation of node categories.
+
+**Constraint:**  
 Node kinds must remain minimal.
 
-Implication:
-- Prefer shader extensibility over new node types
+**Implications:**
+
+- Prefer shader extensibility over introducing new node types
 - Avoid duplicating node categories
-- Maintain stable execution semantics
+- Preserve stable execution semantics
+
+New behavior should default to shader or instrument-level extension.
 
 ---
 
-# Performance Constraints
+## Performance Constraints
 
-- Avoid per-frame allocation in hot paths
-- Avoid shader recompilation per frame
-- Avoid hidden resource churn
+This section defines execution-level performance expectations. The runtime must remain predictable and allocation-stable under per-frame load. Performance issues should be addressed at the instrument level before modifying engine internals.
 
-Instrument-level design should be optimized before engine changes.
+The engine avoids:
 
----
-
-# Contributor Guidance
-
-When proposing changes:
-
-Ask:
-
-1. Does this belong in topology?
-2. Does this belong in configuration?
-3. Does this belong in runtime?
-4. Or does this belong in the instrument layer?
-
-If the answer is unclear, default to instrument-level implementation.
+- Per-frame allocation in hot paths
+- Shader recompilation per frame
+- Hidden resource churn
 
 ---
 
-# Core Principle
+## Contributor Guidance
 
-The engine remains small, deterministic, and execution-focused.
+This section clarifies ownership boundaries when proposing changes. If ownership is unclear, default to instrument-level implementation.
 
-Behavior belongs at the edges.
+When proposing changes, determine ownership:
+
+1. Topology (`scheng-graph`)
+2. Configuration (`NodeProps`)
+3. Runtime (`scheng-runtime`)
+4. Instrument layer
+
+---
+
+## Core Principle
+
+This section summarizes the architectural intent. Behavior belongs at the edges.
+
+The engine remains:
+
+- Small
+- Deterministic
+- Execution-focused

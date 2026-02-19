@@ -1,0 +1,5 @@
+This example demonstrates a sequential shader graph where the output of one GPU stage feeds the next, forming a deterministic “chain” of visual transforms. It shows how scheng executes a multi-node topology in-order, passing textures node-to-node until the final output is drawn.
+
+Use case (1–2 sentences)
+
+Use this pattern when you want an instrument built from stacked visual forms, where each stage is a distinct look or transform and the order matters. It’s the baseline structure for building “signal pipelines” that you can later control with OSC or keyboard transport.<

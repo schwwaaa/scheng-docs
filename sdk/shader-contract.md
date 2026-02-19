@@ -1,28 +1,39 @@
 ---
 layout: default
 title: Shader Contract
-parent: SDK Reference
-nav_order: 8
+parent: SDK
+nav_order: 6
 permalink: /sdk/shader-contract/
 ---
 
 # Shader Contract
 
-Defines the interface between runtime and GLSL programs.
+The Shader Contract defines the interface between `scheng-runtime` and GLSL programs. Shaders provide visual behavior. The runtime provides execution context and resource binding.
+
+**Subject to change*
 
 ---
 
 ## Engine Guarantees
 
-The runtime guarantees:
+During execution, the runtime guarantees:
 
-- Valid GL context
-- Bound textures
+- A valid and current GL context
+- Bound input textures in deterministic order
 - Standard uniforms:
   - `uResolution`
   - `uTime`
   - `uFrame`
-- Deterministic sampler ordering
+- Correct framebuffer binding for output
+
+Sampler ordering is stable and corresponds to graph port ordering.
+
+The runtime handles:
+
+- Program compilation
+- Uniform binding
+- Texture binding
+- Draw dispatch
 
 ---
 
@@ -30,29 +41,59 @@ The runtime guarantees:
 
 Shaders must:
 
-- Compile under supported GLSL version
-- Write valid output color
+- Compile under the supported GLSL version
+- Declare required samplers and uniforms
+- Write a valid output color
 - Respect provided sampler bindings
+
+Shaders must not assume:
+
+- Hidden engine state
+- Implicit uniforms
+- Dynamic topology changes
+
+Behavior must be fully determined by:
+
+- Input textures
+- Provided uniforms
+- `NodeProps` configuration
 
 ---
 
 ## Custom Uniforms
 
-Must be supplied via `NodeProps`.
+Custom uniforms are supplied via `NodeProps`.
 
-Missing values may produce undefined results.
+The runtime reads values from `NodeProps` and sets them before dispatch.
+
+If a shader declares a uniform that is not provided via `NodeProps`, the result is undefined.
+
+Structural changes to uniforms require recompilation.
 
 ---
 
 ## Compilation Model
 
-- Compiled lazily
-- Cached per node
-- Recompiled only when source changes
+Shaders are:
+
+- Compiled lazily on first use
+- Cached per node instance
+- Recompiled only when shader source changes
+
+Compilation failures are returned to the caller immediately.
 
 ---
 
-## Design Boundary
+## Execution Boundary
 
-Engine controls execution.  
-Shaders control visual behavior.
+The runtime controls:
+
+- Execution order
+- Resource lifetime
+- Frame boundaries
+
+Shaders control:
+
+- Pixel-level visual behavior
+
+The engine does not interpret shader semantics.

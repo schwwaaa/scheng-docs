@@ -1,16 +1,35 @@
 ---
 layout: default
 title: Graph API
-parent: SDK Reference
-nav_order: 2
+parent: SDK
+nav_order: 3
 permalink: /sdk/graph-api/
 ---
 
 # Graph API
 
-The Graph API defines the topology of execution.
+The Graph API defines execution topology. It specifies how nodes connect and how structure is validated. It does not define node behavior or perform execution.
 
-It describes how nodes connect, not how they behave.
+*This functionality lives in `scheng-graph`.*
+
+---
+
+## Topology
+
+A graph is a directed set of nodes connected by typed ports.
+
+Each node exposes:
+
+- Input ports
+- Output ports
+
+Connections define data flow between nodes.
+
+Example:
+
+Input → ColorCorrect → Blur → Output
+
+The Graph API defines and validates this structure before runtime execution begins.
 
 ---
 
@@ -24,35 +43,40 @@ The graph:
 - Validates topology
 - Compiles into an immutable execution plan
 
----
-
-## Separation of Concerns
-
-The graph does NOT define:
-
-- Shader code
-- Parameter values
-- Execution timing
-- Control input
-
-Behavior is supplied via `NodeProps` and `FrameCtx`.
+Once compiled, topology is fixed until recompilation.
 
 ---
 
-## Compilation Model
+## Compilation
 
 Calling `compile()` performs:
 
 1. Cycle detection
 2. Port validation
 3. Deterministic topological sorting
-4. Plan construction
+4. Execution plan construction
 
-The resulting plan is immutable.
+The resulting plan is immutable and safe for repeated per-frame evaluation.
 
 ---
 
-## Determinism Guarantees
+## Separation of Concerns
+
+The Graph API does NOT define:
+
+- Shader code
+- Parameter values
+- Execution timing
+- Control input
+- GPU resource management
+
+Behavior is provided via `NodeProps` and `FrameCtx`.  
+Execution is handled by `scheng-runtime`.  
+GPU fulfillment is handled by `scheng-runtime-glow`.
+
+---
+
+## Determinism
 
 Given identical:
 
@@ -60,23 +84,15 @@ Given identical:
 - `NodeProps`
 - `FrameCtx`
 
-Execution order and results are deterministic (assuming deterministic shaders).
+Execution order is deterministic (assuming deterministic shaders).
+
+Topology determinism is guaranteed at compile time.
 
 ---
 
-## Failure Conditions
-
-Compilation fails if:
-
-- Ports are unconnected where required
-- Cycles exist
-- Invalid port names are referenced
-
----
-
-## Design Principle
+## Design Rule
 
 Topology is static.  
 Configuration is dynamic.
 
-This separation enables high-performance per-frame execution.
+Structure must be compiled before execution.
