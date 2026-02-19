@@ -12,9 +12,11 @@ just_the_docs:
 
 markdown: kramdown
 highlighter: rouge
-plugins: []
 
-logo: "/assets/images/logo.png"
+plugins:
+  - jekyll-remote-theme
+
+logo: "{{ '/assets/images/logo.png' | relative_url }}"
 
 defaults:
   - scope:
