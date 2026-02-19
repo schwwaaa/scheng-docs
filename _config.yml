@@ -1,6 +1,7 @@
 title: scheng
 description: Simple documentation site using Just the Docs.
-theme: just-the-docs
+# theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
 
 baseurl: ""
 url: ""
