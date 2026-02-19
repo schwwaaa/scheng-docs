@@ -1,10 +1,10 @@
 title: scheng
 description: Simple documentation site using Just the Docs.
-# theme: just-the-docs
 remote_theme: just-the-docs/just-the-docs
 
-baseurl: ""
-url: ""
+url: "https://schwwaaa.github.io"
+baseurl: "/scheng-docs"
+repository: schwwaaa/scheng-docs
 
 just_the_docs:
   search_enabled: true
