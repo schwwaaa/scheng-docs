@@ -16,7 +16,8 @@ highlighter: rouge
 plugins:
   - jekyll-remote-theme
 
-logo: "{{ '/blob/main/assets/img/logo.png?raw=true' | relative_url }}"
+# logo: "{{ '/blob/main/assets/img/logo.png?raw=true' | relative_url }}"
+logo: "https://github.com/schwwaaa/scheng-docs/blob/main/assets/img/logo.png?raw=true"
 
 defaults:
   - scope:
